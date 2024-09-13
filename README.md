@@ -9,7 +9,7 @@
 To perform Data preprocessing in a data set downloaded from Kaggle
 
 ## EQUIPMENTS REQUIRED:
-Hardware – PCs
+Hardware – PCs.
 Anaconda – Python 3.7 Installation / Google Colab /Jupiter Notebook
 
 ## RELATED THEORETICAL CONCEPT:
