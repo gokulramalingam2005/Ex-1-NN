@@ -1,5 +1,5 @@
-<H3>ENTER YOUR NAME</H3>
-<H3>ENTER YOUR REGISTER NO.</H3>
+<H3>ENTER YOUR NAME:  Gokul J <H3>
+<H3>ENTER YOUR REGISTER NO: 212222230038</H3>
 <H3>EX. NO.1</H3>
 <H3>DATE</H3>
 <H1 ALIGN =CENTER> Introduction to Kaggle and Data preprocessing</H1>
@@ -37,11 +37,83 @@ STEP 5:Normalizing the data<BR>
 STEP 6:Splitting the data into test and train<BR>
 
 ##  PROGRAM:
-TYPE YOUR CODE HERE
+```python
+import pandas as pd
+import io
+from sklearn.preprocessing import StandardScaler
+from sklearn.model_selection import train_test_split
+
+df=pd.read_csv("/content/Churn_Modelling.csv", index_col="RowNumber")
+df
+
+df.drop(['CustomerId'],axis=1,inplace=True)
+df.drop(['Surname'],axis=1,inplace=True)
+df.drop('Age',axis=1,inplace=True)
+df.drop('Geography',axis=1,inplace=True)
+df.drop('Gender',axis=1,inplace=True)
+df
+
+df.isnull().sum()
+df.duplicated()
+df.describe()
+
+scaler=StandardScaler()
+df1=pd.DataFrame(scaler.fit_transform(df))
+df1
+
+x=df1.iloc[:,:-1].values
+x
+y=df1.iloc[:,-1].values
+y
+
+x_train,x_test,y_train,y_test=train_test_split(x,y,test_size=0.2)
+print(x_train)
+print(len(x_train))
+print(x_test)
+print(len(x_test))
+```
 
 
 ## OUTPUT:
-SHOW YOUR OUTPUT HERE
+
+## DATASET:
+
+![image](https://github.com/user-attachments/assets/fc7aa9d9-e9f7-4c0e-98ed-3cc03f096f04)
+
+
+## DROPPING THE UNWANTED DATASET:
+
+![image](https://github.com/user-attachments/assets/c9b3916f-3efc-4ece-bae1-57f9b9052b38)
+
+
+## CHECKING NULL VALUES:
+
+![image](https://github.com/user-attachments/assets/e575e37b-3c74-415b-84ac-ab9d3d7359f9)
+
+## CHECKING FOR DUPLICATION:
+
+![image](https://github.com/user-attachments/assets/b8bc451f-be7f-4e20-9c13-f4819e86ab1c)
+
+
+## DESCRIBING THE DATASET:
+
+![image](https://github.com/user-attachments/assets/4de3ad01-19e9-4857-817c-564c33782acb)
+
+## SCALING THE DATASET:
+
+![image](https://github.com/user-attachments/assets/de14f593-bf22-4995-8687-b678395af658)
+
+
+## X and Y FEATURES:
+
+![image](https://github.com/user-attachments/assets/eb3b7ef9-a06e-4221-b50d-4018dfd46536)
+
+
+## SPLITTING THE TRAINING AND TESTING DATASET:
+
+![image](https://github.com/user-attachments/assets/d286151e-c239-4522-8819-7daa6932c037)
+
+
 
 
 ## RESULT:
